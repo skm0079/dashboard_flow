@@ -1,3 +1,4 @@
+import 'package:dashboard_flow/screens/dashboard/dashboard_screen.dart';
 import 'package:dashboard_flow/screens/main/components/side_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +10,14 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Row(
-        children: [
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
           // It takes 1/6 part of the screen
-          const Expanded(child: SideMenu()),
+          Expanded(child: SideMenu()),
           Expanded(
-            // It takes 5/6 part of the screen
-            flex: 5,
-            child: Container(
-              color: Colors.blue,
-            ),
-          ),
+              // It takes 5/6 part of the screen
+              flex: 5,
+              child: DashboardScreen()),
         ],
       )),
     );
