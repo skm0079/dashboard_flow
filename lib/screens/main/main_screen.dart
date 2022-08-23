@@ -1,3 +1,4 @@
+import 'package:dashboard_flow/screens/main/components/side_menu.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -5,6 +6,21 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: SafeArea(
+          child: Row(
+        children: [
+          // It takes 1/6 part of the screen
+          const Expanded(child: SideMenu()),
+          Expanded(
+            // It takes 5/6 part of the screen
+            flex: 5,
+            child: Container(
+              color: Colors.blue,
+            ),
+          ),
+        ],
+      )),
+    );
   }
 }
