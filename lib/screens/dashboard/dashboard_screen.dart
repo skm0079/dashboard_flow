@@ -1,5 +1,6 @@
 import 'package:dashboard_flow/constants.dart';
 import 'package:dashboard_flow/screens/dashboard/components/header.dart';
+import 'package:dashboard_flow/screens/dashboard/components/storage_details.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class DashboardScreen extends StatelessWidget {
               height: defaultPadding,
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   flex: 5,
@@ -26,12 +28,9 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: defaultPadding),
-                Expanded(
+                const Expanded(
                   flex: 2,
-                  child: Container(
-                    height: 500,
-                    color: primaryColor,
-                  ),
+                  child: StorageDetails(),
                 ),
               ],
             )
