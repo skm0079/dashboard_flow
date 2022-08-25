@@ -30,21 +30,22 @@ class MyFiles extends StatelessWidget {
               icon: const Icon(Icons.add),
               label: const Text("Add new"),
             ),
-            const SizedBox(
-              height: defaultPadding,
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: 4,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: defaultPadding,
-                  childAspectRatio: 1.4),
-              itemBuilder: ((context, index) =>
-                  FileInfoCard(info: demoMyFiels[index])),
-            )
           ],
-        )
+        ),
+        const SizedBox(
+          height: defaultPadding,
+        ),
+        GridView.builder(
+          shrinkWrap: true,
+          itemCount: 4,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            crossAxisSpacing: defaultPadding,
+            childAspectRatio: 1.4,
+          ),
+          itemBuilder: ((context, index) =>
+              FileInfoCard(info: demoMyFiels[index])),
+        ),
       ],
     );
   }
