@@ -1,5 +1,8 @@
+import 'package:dashboard_flow/controllers/menu_controller.dart';
+import 'package:dashboard_flow/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
 
@@ -12,13 +15,19 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          "Dashboard",
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        const Spacer(
-          flex: 2,
-        ),
+        if (!Responsive.isDesktop(context))
+          IconButton(
+              onPressed: context.read<MenuController>().controlMenu,
+              icon: const Icon(Icons.menu)),
+        if (!Responsive.isMobile(context))
+          Text(
+            "Dashboard",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        if (Responsive.isMobile(context))
+          Spacer(
+            flex: Responsive.isDesktop(context) ? 2 : 1,
+          ),
         const Expanded(
           child: SearchField(),
         ),
@@ -50,10 +59,11 @@ class ProfileCard extends StatelessWidget {
             "assets/images/profile_pic.png",
             height: 30,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            child: Text("Agilis"),
-          ),
+          if (!Responsive.isMobile(context))
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              child: Text("Agilis"),
+            ),
           const Icon(Icons.keyboard_arrow_down)
         ],
       ),
