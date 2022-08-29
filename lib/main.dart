@@ -1,12 +1,21 @@
 import 'package:dashboard_flow/constants.dart';
 import 'package:dashboard_flow/controllers/menu_controller.dart';
-import 'package:dashboard_flow/screens/main/main_screen.dart';
+import 'package:dashboard_flow/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MenuController(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,14 +33,8 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: const MainScreen(),
-      ),
+      routes: appRoutes,
+      initialRoute: '/',
     );
   }
 }
