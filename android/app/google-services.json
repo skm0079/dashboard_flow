@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "722238446570",
+    "project_id": "swarna-agilis-feature",
+    "storage_bucket": "swarna-agilis-feature.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722238446570:android:1d82c0b24b4d87421ff093",
+        "android_client_info": {
+          "package_name": "com.example.dashboard_flow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722238446570-0tol6ecoos7q1qgh2kfhi50212s016aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaRN4dzfVz7J9SjZS0_oWVlV5JJVEIuE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722238446570-0tol6ecoos7q1qgh2kfhi50212s016aq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
