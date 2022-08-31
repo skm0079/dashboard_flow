@@ -1,16 +1,26 @@
 import 'package:dashboard_flow/constants.dart';
+import 'package:dashboard_flow/controllers/google_sign_in.dart';
 import 'package:dashboard_flow/controllers/menu_controller.dart';
+import 'package:dashboard_flow/firebase_options.dart';
 import 'package:dashboard_flow/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (context) => MenuController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => GoogleSignInProvider(),
         ),
       ],
       child: const MyApp(),
